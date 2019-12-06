@@ -8,20 +8,20 @@ pipeline {
    }
 
    stages {
-      stage('github scm') {
+     /* stage('github scm') {
          steps {
             // Get some code from a GitHub repository
             git credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinic.git'
          }
-      }
-   /*   stage('build'){
+      }*/
+      stage('build'){
         steps{
             sh 'mvn clean compile test'
             sh 'mvn war:war'
             archiveArtifacts artifacts: 'target/*.war', fingerprint: true, onlyIfSuccessful: true
         }    
       }
-    */  
+     
        stage('QA Test'){
         steps{
              sh "mvn jacoco:dump -Djacoco.address=127.0.0.1 -Djacoco.append=false -Djacoco.reset=true"
