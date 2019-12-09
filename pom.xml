@@ -120,12 +120,6 @@
 			<optional>true</optional>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.jacoco</groupId>
-			<artifactId>org.jacoco.agent</artifactId>
-			<version>${jacoco.version}</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -155,6 +149,22 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>${jacoco.version}</version>
+				<configuration>
+					<title>{project.name} - QA Coverage</title>
+					<outputDirectory>${project.reporting.outputDirectory}/jacoco/qa-coverage</outputDirectory>
+					<rules>
+						<rule>
+							<element>BUNDLE</element>
+							<limits>
+								<limit>
+								<counter>INSTRUCTION</counter>
+								<value>COVERAGERATIO</value>
+								<minimum>0.4</minimum>
+								</limit>
+							</limits>
+						</rule>
+					</rules>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
