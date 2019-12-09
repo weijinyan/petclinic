@@ -150,7 +150,7 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>${jacoco.version}</version>
 				<configuration>
-					<title>{project.name} - QA Coverage</title>
+					<title>${project.name} - QA Coverage</title>
 					<outputDirectory>${project.reporting.outputDirectory}/jacoco/qa-coverage</outputDirectory>
 					<rules>
 						<rule>
@@ -158,7 +158,7 @@
 							<limits>
 								<limit>
 								<counter>INSTRUCTION</counter>
-								<value>COVERAGERATIO</value>
+								<value>COVEREDRATIO</value>
 								<minimum>0.4</minimum>
 								</limit>
 							</limits>
