@@ -58,7 +58,10 @@ pipeline {
      }
      stage('Deploy'){
          steps{
-            echo 'deploy' 
+           dir(params.DeployScriptFolder){
+                git branch: 'deploy-petclinic', credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinic-deploy.git'
+                sh "/usr/local/bin/ansible-playbook -i tests/inventory tests/test.yml"
+            }
          }
      }
        stage('QA Test'){
