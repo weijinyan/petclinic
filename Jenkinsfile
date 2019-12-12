@@ -66,7 +66,7 @@ pipeline {
      }
        stage('QA Test'){
         steps{
-             sh "mvn jacoco:dump -Djacoco.address=127.0.0.1 -Djacoco.append=false -Djacoco.reset=true"
+             sh "mvn jacoco:dump -Djacoco.address=52.146.56.80 -Djacoco.port=31000 -Djacoco.append=false -Djacoco.reset=true"
           
             dir(params.AutomationTestPath) {
                 git credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinicauto.git'
@@ -79,7 +79,7 @@ pipeline {
       
       stage('Code Coverage(QA Test)'){
           steps{
-                sh "mvn jacoco:dump -Djacoco.address=127.0.0.1 -Djacoco.append=false"
+                sh "mvn jacoco:dump -Djacoco.address=52.146.56.80 -Djacoco.port=31000 -Djacoco.append=false"
                 sh "mvn jacoco:report"
                 archiveArtifacts artifacts: 'target/site/jacoco/qa-coverage/**/*', fingerprint: true
           }

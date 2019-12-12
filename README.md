@@ -3,6 +3,7 @@ This is a sample project for pipeline
 
 
 Add parameter "AutomationTestPath" in the pipeline job
+Add Parameter "DeployScriptFolder" in the pipeline job
 
 1.Config Jenkins
 
@@ -48,6 +49,6 @@ Configuration->General Settings->SCM->Disable SCM Sensor
 4. Tomcat for Jacoco
 Open Catalina.sh, find JAVA_OPTS="JAVA_OPTS -Djava
 
-Add '-javaagent:pathofJacocoagentjar=output=tcpserver,address=*,port=6300'
+Add '-javaagent:pathofJacocoagentjar=output=tcpserver,address=vm ip,port=6300'
 
 
