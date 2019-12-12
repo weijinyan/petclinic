@@ -24,6 +24,7 @@ Manage Jenkins->Global Tool Configuration ->Bind M3
 
 2.Update Maven settings
 
+```bash
 <profiles>
 	<profile>
 		<id>sonar</id>
@@ -35,6 +36,7 @@ Manage Jenkins->Global Tool Configuration ->Bind M3
 		</properties>
 	</profile>
 </profiles>
+```
 
 3. Configure SonarQube
 SonarQube ->Login with admin role->Administration->Configuration->General Settings->Webhooks->Create 
