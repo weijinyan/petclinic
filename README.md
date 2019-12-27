@@ -50,3 +50,5 @@ Configuration->General Settings->SCM->Disable SCM Sensor
 Open Catalina.sh, find JAVA_OPTS="JAVA_OPTS -Djava
 
 Add '-javaagent:pathofJacocoagentjar=output=tcpserver,address=docker container ip,port=6300'
+
+test
