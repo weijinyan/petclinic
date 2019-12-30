@@ -78,7 +78,7 @@ class OwnerController {
     }
 
     @GetMapping("/owners")
-    public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) {
+    public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) throws InterruptedException {
 
         // allow parameterless GET request for /owners to return all records
         if (owner.getLastName() == null) {
@@ -87,12 +87,7 @@ class OwnerController {
 
         // find owners by last name
         Collection<Owner> results = this.owners.findByLastName(owner.getLastName());
-        try {
-			Thread.sleep(60000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Thread.sleep(15000);
         if (results.isEmpty()) {
             // no owners found
             result.rejectValue("lastName", "notFound", "not found");
