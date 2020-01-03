@@ -71,6 +71,7 @@ pipeline {
             timeout(3){
              sh "mvn jacoco:dump -Djacoco.address=52.146.56.80 -Djacoco.port=32112 -Djacoco.append=false -Djacoco.reset=true"
             }
+	    input “Is manual test procesed?”
             dir(params.AutomationTestPath) {
                 git credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinicauto.git'
                 sh 'mvn clean compile package'
