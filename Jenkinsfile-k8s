@@ -54,6 +54,7 @@ pipeline {
          steps{
             sh 'mvn war:war' 
             archiveArtifacts artifacts: 'target/*.war', fingerprint: true, onlyIfSuccessful: true
+	sh 'cp target/petclinic.war /users/shared/devops/'
          }
      }
      stage('Deploy'){
