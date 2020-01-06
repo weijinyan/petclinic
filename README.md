@@ -52,5 +52,3 @@ Open Catalina.sh, find JAVA_OPTS="JAVA_OPTS -Djava
 Add '-javaagent:pathofJacocoagentjar=output=tcpserver,address=0.0.0.0,port=6300'
 
 Right now using daocloud.io/devops2019/tomcat-jacoco image
-
-test
