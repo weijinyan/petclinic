@@ -68,7 +68,7 @@ pipeline {
              sh "mvn jacoco:dump -Djacoco.address=52.146.56.80 -Djacoco.port=31000 -Djacoco.append=false -Djacoco.reset=true"
           
             dir(params.AutomationTestPath) {
-                git url: 'https://github.com/weijinyan/petclinicauto.git'
+                /*git url: 'https://github.com/weijinyan/petclinicauto.git'*/
                 sh 'mvn clean compile package'
                 sh 'java -jar ./target/petclinicauto-0.0.1-SNAPSHOT-jar-with-dependencies.jar'
             }
