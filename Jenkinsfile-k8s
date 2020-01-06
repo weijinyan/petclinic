@@ -70,7 +70,7 @@ pipeline {
             timeout(3){
              sh "mvn jacoco:dump -Djacoco.address=52.146.56.80 -Djacoco.port=32112 -Djacoco.append=false -Djacoco.reset=true"
             }
-	    input 'Is manual test finished?'
+	    //input 'Is manual test finished?'
             //sleep 10
 
             dir(params.AutomationTestPath) {
