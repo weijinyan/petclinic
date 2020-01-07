@@ -89,10 +89,10 @@ pipeline {
                 archiveArtifacts artifacts: 'target/site/jacoco/qa-coverage/**/*', fingerprint: true
           }
       }
-     stage('Quality Gate (QA)'){
+/*     stage('Quality Gate (QA)'){
          steps{
              sh 'mvn jacoco:check'
          }
-     }
+     }*/
    }
 }
