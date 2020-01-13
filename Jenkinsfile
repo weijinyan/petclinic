@@ -8,13 +8,12 @@ pipeline {
    }
 
    stages {
-    /*  stage('github scm') {
+      stage('github scm') {
          steps {
             // Get some code from a GitHub repository
-            git credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinic.git'
+            git url: 'https://github.com/weijinyan/petclinic.git'
          }
       }
-      */
       stage('compile'){
         steps{
             sh 'mvn clean compile'
@@ -59,8 +58,8 @@ pipeline {
      stage('Deploy'){
          steps{
            dir(params.DeployScriptFolder){
-                git branch: 'deploy-petclinic', credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinic-deploy.git'
-                sh "/usr/local/bin/ansible-playbook -i tests/inventory tests/test.yml"
+                git branch: 'jwei', url: 'https://github.com/weijinyan/petclinic-deploy.git'
+                sh "/Library/Frameworks/Python.framework/Versions/2.7/bin/ansible-playbook -i tests/inventory tests/test.yml"
             }
          }
      }
@@ -69,7 +68,7 @@ pipeline {
              sh "mvn jacoco:dump -Djacoco.address=52.146.56.80 -Djacoco.port=31000 -Djacoco.append=false -Djacoco.reset=true"
           
             dir(params.AutomationTestPath) {
-                git credentialsId: 'b7515b53-9639-4ff6-976e-bd1c9dca6051', url: 'https://github.com/weijinyan/petclinicauto.git'
+                /*git url: 'https://github.com/weijinyan/petclinicauto.git'*/
                 sh 'mvn clean compile package'
                 sh 'java -jar ./target/petclinicauto-0.0.1-SNAPSHOT-jar-with-dependencies.jar'
             }
