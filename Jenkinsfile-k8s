@@ -60,7 +60,7 @@ pipeline {
      stage('Deploy'){
          steps{
            dir(params.DeployScriptFolder){
-                git branch: 'deploy-to-vm', url: 'https://github.com/weijinyan/k8s-deploy.git'
+                git branch: 'deploy-to-local', url: 'https://github.com/weijinyan/k8s-deploy.git'
                 sh "/Library/Frameworks/Python.framework/Versions/2.7/bin/ansible-playbook -i tests/inventory tests/test.yml"
             }
          }
